@@ -22,8 +22,13 @@ export default function App() {
 
   const showAllText = () => (
     files.map(file => (
-      <div className='singleFile'>
-        <p className='singleFile__p'>{file.text}</p>
+      <div key={file.key} className='singleFile'>
+        <p className='singleFile__p' >{file.text}</p>
+        <div className='singleFile__actionBtns'>
+          <button type='button'>edit</button>
+          <button type='button'>delete</button>
+          <button type='button'>highlight</button>
+        </div>
       </div>
     ))
   )
@@ -36,7 +41,7 @@ export default function App() {
 
   return (
     <div>
-      <input type="file" onChange={saveImportedFile} />
+      <input className='input' type="file" onChange={saveImportedFile} />
       <br />
       {showAllText()}
     </div>
